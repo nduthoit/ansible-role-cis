@@ -154,7 +154,7 @@
       - section8.3.1
 
   - name: 8.3.1 Install AIDE (Score) - aideinit
-    command: /usr/sbin/aideinit -y
+    command: /usr/sbin/aideinit -y -f
     sudo: yes
     when: configure_aide
     tags:
