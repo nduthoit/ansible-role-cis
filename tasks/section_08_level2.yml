@@ -48,7 +48,7 @@
       - notscored
       - section8.1
       - section8.1.1
-      - section8.1.1.1 
+      - section8.1.1.1
 
   - name: 8.1.1.2 Disable System on Audit Log Full (Not Scored)
     lineinfile: >
@@ -120,7 +120,7 @@
       - section8.1.17
       - section8.1.18
 
-  - name: 8.1.12 Collect Use of Privileged Commands (Scored) - gather commands with elevated privileges  
+  - name: 8.1.12 Collect Use of Privileged Commands (Scored) - gather commands with elevated privileges
     shell: sh -c 'find / -xdev \( -perm -4000 -o -perm -2000 \) -type f | awk '\''{print "-a always,exit -F path=" $1 " -F perm=x -F auid>=500 -F auid!=4294967295 -k privileged" }'\'''
     register: privileged_commands
     sudo: yes
@@ -154,7 +154,7 @@
       - section8.3.1
 
   - name: 8.3.1 Install AIDE (Score) - aideinit
-    command: /usr/sbin/aideinit
+    command: /usr/sbin/aideinit -y
     sudo: yes
     when: configure_aide
     tags:
